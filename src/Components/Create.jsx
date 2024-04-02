@@ -3,6 +3,9 @@ import { useState } from 'react'
 import axios from "axios"
 import "../index.css"
 import { useNavigate,Link } from 'react-router-dom'
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 
 function Create() {
 
@@ -14,6 +17,22 @@ function Create() {
 
     const handleSubmit = (e) =>{
         e.preventDefault();
+
+        toast.success('Data Added!', {
+            position: "bottom-center",
+            autoClose: 2000,
+            onClose: () => {
+                navigate('/');
+            },
+            style: {
+                minHeight:"0px",
+                top:"20px",
+                borderRadius:"50px",
+                alignItems:"center"
+            },
+           closeButton:false
+        });
+
         // hum data post kr re hai mtlb add kr re hai..eslei post method use kro 
         axios.post("https://660a7651ccda4cbc75daee03.mockapi.io/Crud",{
             name : Name,
@@ -21,25 +40,26 @@ function Create() {
             email : Email
         })
         .then((res)=>{
-            alert("data created !!")
-            navigate('/')
+            // alert("data created !!")
+            // navigate('/')
             setName("")
             setEmail("")
             setAge("")
             setIsChecked(false)
         })
+
     }
   return (
     <div className='overflow-hidden'>  
 
     <span className="flex justify-end relative top-14 right-16">
             <Link to={"/"} >
-            <button type="button" className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-bold rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">Go Back </button>
+            <button type="button" className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-bold rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800 bck-btn">Go Back </button>
             </Link>
         </span>
 
-    <h1 className='relative left-[45%] top-28 text-3xl font-bold '>Create Data</h1>
-        <form className="max-w-sm mx-auto mt-36 border-2 rounded-lg p-10 shadow-lg" onSubmit={handleSubmit}>
+    <h1 className='relative left-[45%] top-28 text-3xl font-bold heading-title '>Create Data</h1>
+        <form className="max-w-sm mx-auto mt-36 border-2 rounded-lg p-10 create shadow-lg" onSubmit={handleSubmit}>
 
         <div className="mb-5">
             <label className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Name </label>
@@ -64,10 +84,11 @@ function Create() {
         </div>
         {/* submit button  */}
        <div className='flex justify-center'>
-            <button type="submit" className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm sm:w-auto px-32 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Submit</button>
+            <button type="submit" className="text-white submit-btn bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm sm:w-auto px-32 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Submit</button>
         </div>
         </form>
-
+        <ToastContainer/>
+        
     </div>
   )
 }

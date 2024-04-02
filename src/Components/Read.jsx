@@ -14,6 +14,7 @@ function Read() {
         setApiData(res.data);
       });
   };
+  
  // deleting functionality into api 
   const DeleteRow = (id) => {
     axios
@@ -38,18 +39,18 @@ function Read() {
   return (
     <div>
       <span className="flex justify-end relative top-14 right-16">
-        <h1 className="font-bold text-2xl items-center relative right-[35%]">CRUD Application</h1>
+        <h1 className="font-bold text-2xl items-center relative right-[35%] application">CRUD Application</h1>
         <Link to={"/create"}>
           <button
             type="button"
-            className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-bold rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800"
+            className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-bold rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800 add"
           >
             +Add
           </button>
         </Link>
       </span>
 
-      <div className="relative overflow-x-auto shadow-md sm:rounded-lg m-20">
+      <div className="relative overflow-x-auto shadow-md sm:rounded-lg m-20 main-table">
         <table className="w-full text-md text-left rtl:text-right text-gray-500 dark:text-gray-400">
           <thead className="text-md text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
             <tr>
@@ -115,7 +116,7 @@ function Read() {
           className="fixed inset-0 flex justify-center items-center z-50 bg-gray-700 bg-opacity-50"
           onClick={() => setItemToDelete(null)} // Close modal when clicking outside
         >
-          <div className="relative bg-white rounded-lg shadow-lg w-96">
+          <div className="relative pop-up bg-white rounded-lg shadow-lg w-96">
             <div className="p-4 md:p-5 text-center">
               <svg
                 className="mx-auto mb-4 text-gray-400 w-12 h-12 dark:text-gray-200"

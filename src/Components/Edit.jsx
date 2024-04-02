@@ -1,6 +1,9 @@
 import axios from 'axios'
 import React, { useEffect, useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 
 function Edit() {
 
@@ -20,14 +23,27 @@ function Edit() {
     // NOTE: delete/ Update dono k case me Id k through kam krte hai 
     const handleUpdate = (e) =>{
         e.preventDefault();
+
+        toast.success('Updated!', {
+            position: "bottom-center",
+            autoClose: 2000,
+            onClose: () => {
+                navigate('/');
+            },
+            style: {
+                minHeight:"0px",
+                top:"20px",
+                borderRadius:"50px",
+                alignItems:"center"
+            },
+           closeButton:false
+        });
+
+
         axios.put(`https://660a7651ccda4cbc75daee03.mockapi.io/Crud/${id}`,{
             name:Name,
             age:Age,
             email:Email
-        })
-        .then(()=>{
-            alert("data updated successfully !!")
-            navigate("/");
         })
     }
 
@@ -36,12 +52,12 @@ function Edit() {
 
     <span className="flex justify-end relative top-14 right-16">
             <Link to={"/"} >
-            <button type="button" className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-bold rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">Go Back </button>
+            <button type="button" className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-bold rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800 bck-btn">Go Back </button>
             </Link>
         </span>
 
-    <h1 className='relative left-[45%] top-28 text-3xl font-bold '>Update Data</h1>
-        <form className="max-w-sm mx-auto mt-36 border-2 rounded-lg p-10 shadow-lg" onSubmit={handleUpdate}>
+    <h1 className='relative left-[45%] top-28 text-3xl font-bold heading-title '>Update Data</h1>
+        <form className="max-w-sm mx-auto mt-36 border-2 rounded-lg p-10 shadow-lg create" onSubmit={handleUpdate}>
 
         <div className="mb-5">
             <label className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Name </label>
@@ -58,10 +74,10 @@ function Edit() {
 
         {/* submit button  */}
        <div className='flex justify-center'>
-            <button type="submit" className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm sm:w-auto px-32 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Update</button>
+            <button type="submit" className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm sm:w-auto px-32 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 submit-btn">Update</button>
         </div>
         </form>
-
+        <ToastContainer/>
     </div>
   )
 }
