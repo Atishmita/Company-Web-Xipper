@@ -4,16 +4,15 @@
 
 
 
-@media (max-width: 426px) and (min-width:320px) {
+@media (max-width:426px) and (min-width:320px) {
     .application{
-        color: red;
         position: relative;
-        left:35%
+        left: 15%
     }
     .add{
         position: relative;
-        top: 455px;
-        right: -50px;
+        top: 90px;
+        right: -60px;
     }
     .main-table{
         margin-top: 150px;
@@ -47,5 +46,17 @@
     .crudtitle{
        width: 30px;
     }
+    .Toastify__toast-container{
+        top: 570px; 
+    }
+    .Toastify__toast{
+        width: 330px;
+        left: 40px; 
+        height: 45px;
+    }
+    .Toastify__toast-body{
+        position: relative;
+        top: -3px;
+    }
   }
-  
+   
