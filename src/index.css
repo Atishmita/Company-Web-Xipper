@@ -2,61 +2,72 @@
 @tailwind components;
 @tailwind utilities;
 
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
 
 
 @media (max-width:426px) and (min-width:320px) {
-    .application{
+    .application {
         position: relative;
         left: 15%
     }
-    .add{
+
+    .add {
         position: relative;
         top: 90px;
         right: -60px;
     }
-    .main-table{
+
+    .main-table {
         margin-top: 150px;
         margin-left: 10px;
         margin-right: 10px;
-        font-size: small;  
+        font-size: small;
     }
-    .pop-up{
+
+    .pop-up {
         margin-left: 10px;
         margin-right: 10px
     }
-    .create{
+
+    .create {
         margin-top: 80px;
         margin-left: 10px;
         margin-right: 10px;
     }
-    .submit-btn{
+
+    .submit-btn {
         padding: 10px;
         width: 500px;
     }
-    .heading-title{
-       position: relative;
-       left: 25%;
-       top: 55px
+
+    .heading-title {
+        position: relative;
+        left: 25%;
+        top: 55px
     }
-    .bck-btn{
+
+    .bck-btn {
         position: relative;
         right: -60px;
         top: -30px;
     }
-    .crudtitle{
-       width: 30px;
+
+    .crudtitle {
+        width: 30px;
     }
-    .Toastify__toast-container{
-        top: 570px; 
+
+    .Toastify__toast-container {
+        top: 570px;
     }
-    .Toastify__toast{
+
+    .Toastify__toast {
         width: 330px;
-        left: 40px; 
+        left: 40px;
         height: 45px;
     }
-    .Toastify__toast-body{
+
+    .Toastify__toast-body {
         position: relative;
         top: -3px;
     }
-  }
-   
+}
